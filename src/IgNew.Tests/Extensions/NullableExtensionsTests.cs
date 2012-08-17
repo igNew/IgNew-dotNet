@@ -1,49 +1,51 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="BooleanExtensionsTests.cs" company="IgNew LLC">
+// <copyright file="NullableExtensionsTests.cs" company="IgNew LLC">
 //   Copywright (c) 2012 IgNew LLC. All rights reserved.
 // </copyright>
 // <summary>
-//   Unit tests for .
+//   Unit tests for
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
-namespace IgNew.Extensions.Tests
+namespace IgNew.Tests.Extensions
 {
     #region Using Directives
+
+    using IgNew.Extensions;
 
     using NUnit.Framework;
 
     #endregion
 
     /// <summary>
-    ///   Unit tests for <see cref="BooleanExtensions" /> .
+    ///   Unit tests for <see cref="NullableExtensions" />
     /// </summary>
     [TestFixture]
-    public class BooleanExtensionsTests
+    public class NullableExtensionsTests
     {
         #region Public Methods and Operators
 
         /// <summary>
-        /// TODO The test_ to string_false.
+        /// TODO The test_ value or default_default.
         /// </summary>
         [Test]
-        public void Test_ToString_false()
+        public void Test_ValueOrDefault_default()
         {
-            var trueString = "true";
-            var falseString = "false";
+            int? nullable = null;
 
-            Assert.That(false.ToString(trueString, falseString), Is.EqualTo(falseString));
+            Assert.That(nullable.ValueOrDefault(), Is.EqualTo(default(int)));
         }
 
         /// <summary>
-        /// TODO The test_ to string_true.
+        /// TODO The test_ value or default_value.
         /// </summary>
         [Test]
-        public void Test_ToString_true()
+        public void Test_ValueOrDefault_value()
         {
-            var trueString = "true";
-            var falseString = "false";
+            var value = 1234;
 
-            Assert.That(true.ToString(trueString, falseString), Is.EqualTo(trueString));
+            int? nullable = value;
+
+            Assert.That(nullable.ValueOrDefault(), Is.EqualTo(value));
         }
 
         #endregion
